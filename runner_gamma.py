@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 W = np.array(pd.read_csv('synthetic_gamma.csv'))
 X = loadmat('X_hawkes_syn_gamma.mat').get('X')
-itermax = 30
+itermax = 300
 W_learn, funcVal, M_learn, U_learn = clusterhawkes(X, 15, 0.1, 3, 0.7, itermax, bFlag= 2,prior = 'gamma',gamma_theta=[1/5,1/5,1/5],gamma_k= [2,3,4])
 # W_learn, funcVal, M_learn, U_learn = clusterhawkes(X, 15, 0.1, 3, 0.7, itermax, bFlag= 2)
 pd.DataFrame(M_learn).to_csv('synthetic_learnedM_gamma_iter'+str(itermax)+'.csv',index = False)
